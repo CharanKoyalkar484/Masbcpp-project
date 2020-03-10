@@ -143,6 +143,10 @@ int main(int argc, char **argv)
                     ofs << " " << (*madata.coords)[i].y;
                     ofs << " " << (*madata.coords)[i].z;
                 ofs << std::endl;
+			io_parameters output_params = {};
+          output_params.lfs == false;
+          output_params.mask == false;
+          madata2npy(output_paths, madatta, output_paraams);
                 }
             }
             
