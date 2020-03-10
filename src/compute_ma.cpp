@@ -92,6 +92,16 @@ int main(int argc, char **argv) {
             << "denoise_preserve " << denoise_preserveArg.getValue() << std::endl
             << "denoise_planar " << denoise_planarArg.getValue() << std::endl;
          metadata.close();
+         io_params.coords = true;
+      io_params.normals = true;
+      io_params.ma_coords = false;
+      io_params.ma_qidx = true;
+         io_params.coords = false;
+      io_params.normals = false;
+      io_params.ma_coords = true;
+      io_params.ma_qidx = true;
+      madata2npy(output_path, madata, io_params);
+      madata2npy(output_path, madata, io_params);
       }
    }
    catch (TCLAP::ArgException &e) { std::cerr << "Error: " << e.error() << " for " << e.argId() << std::endl; }
